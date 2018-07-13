@@ -14,7 +14,7 @@ class Notifications: NSObject, UNUserNotificationCenterDelegate {
     let notificationCenter = UNUserNotificationCenter.current()
     
     func requestAutorization() {
-        notificationCenter.requestAuthorization(options: [.alert, .sound, .badge, .providesAppNotificationSettings, .provisional]) { (granted, error) in
+        notificationCenter.requestAuthorization(options: [.alert, .sound, .badge, .providesAppNotificationSettings]) { (granted, error) in
             print("Permission granted: \(granted)")
             
             guard granted else { return }
@@ -41,30 +41,15 @@ class Notifications: NSObject, UNUserNotificationCenterDelegate {
         
         content.title = notifaicationType
         content.body = "Summer Time"
-        content.sound = UNNotificationSound.default
+        content.sound = .default
         content.badge = 1
         content.categoryIdentifier = userActions
         
-        /*
-        guard let path = Bundle.main.path(forResource: "favicon", ofType: "png") else { return }
+        content.threadIdentifier = notifaicationType
         
-        let url = URL(fileURLWithPath: path)
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
         
-        do {
-            let attachment = try UNNotificationAttachment(
-                identifier: "favicon",
-                url: url,
-                options: nil)
-            
-            content.attachments = [attachment]
-        } catch {
-            print("The attachment cold not be loaded")
-        }
-         */
-        
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
-        
-        let identifire = "Local Notification"
+        let identifire = UUID().uuidString
         let request = UNNotificationRequest(identifier: identifire,
                                             content: content,
                                             trigger: trigger)
@@ -74,26 +59,6 @@ class Notifications: NSObject, UNUserNotificationCenterDelegate {
                 print("Error \(error.localizedDescription)")
             }
         }
-        
-        /*
-        let snoozeAction = UNNotificationAction(
-            identifier: "Snooze",
-            title: "Snooze",
-            options: [])
-        
-        let deleteAction = UNNotificationAction(
-            identifier: "Dismiss",
-            title: "Dismiss",
-            options: [.destructive])
-        
-        let category = UNNotificationCategory(
-            identifier: userActions,
-            actions: [snoozeAction, deleteAction],
-            intentIdentifiers: [],
-            options: [])
-
-        notificationCenter.setNotificationCategories([category])
- */
     }
     
     

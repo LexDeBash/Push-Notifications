@@ -76,7 +76,8 @@ class NotificationViewController: UIViewController, UNNotificationContentExtensi
         content.categoryIdentifier = "User Actions"
         
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: timeInterval, repeats: false)
-        let request = UNNotificationRequest(identifier: "Local Notification",
+        let uuid = UUID().uuidString
+        let request = UNNotificationRequest(identifier: uuid,
                                             content: content,
                                             trigger: trigger)
         
@@ -97,7 +98,7 @@ class NotificationViewController: UIViewController, UNNotificationContentExtensi
         let category = UNNotificationCategory(
             identifier: "User Actions",
             actions: actions,
-            intentIdentifiers: [],
+            intentIdentifiers: ["Thred 1", "Thred 2"],
             options: [])
         
         UNUserNotificationCenter.current().setNotificationCategories([category])
