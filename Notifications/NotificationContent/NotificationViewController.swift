@@ -17,6 +17,7 @@ class NotificationViewController: UIViewController, UNNotificationContentExtensi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setNotificationCategories()
     }
     
     @IBAction func likeButtonTapped(_ sender: Any) {
@@ -49,10 +50,56 @@ class NotificationViewController: UIViewController, UNNotificationContentExtensi
                 UNNotificationAction(identifier: "60 second",  title: "Отложить на 60 секунд", options: []),
                 ]
             extensionContext?.notificationActions = actions
-        case "Delete":
+        case "5 second":
+            reminder(timeInterval: 5)
+            dismissNotification()
+        case "10 second":
+            reminder(timeInterval: 10)
+            dismissNotification()
+        case "60 second":
+            reminder(timeInterval: 60)
+            dismissNotification()
+        case "Dismiss":
             dismissNotification()
         default:
             dismissNotification()
         }
+    }
+    
+    func reminder(timeInterval: Double) {
+        
+        let content = UNMutableNotificationContent()
+        
+        content.title = "Reminder"
+        content.body = "Summer Time"
+        content.sound = UNNotificationSound.default
+        content.categoryIdentifier = "User Actions"
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: timeInterval, repeats: false)
+        let request = UNNotificationRequest(identifier: "Local Notification",
+                                            content: content,
+                                            trigger: trigger)
+        
+        UNUserNotificationCenter.current().add(request) { (error) in
+            if let error = error {
+                print("Error \(error.localizedDescription)")
+            }
+        }
+    }
+    
+    func setNotificationCategories() {
+        
+        let actions = [
+            UNNotificationAction(identifier: "Snooze",  title: "Snooze", options: []),
+            UNNotificationAction(identifier: "Dismiss",  title: "Dismiss", options: [.destructive]),
+            ]
+        
+        let category = UNNotificationCategory(
+            identifier: "User Actions",
+            actions: actions,
+            intentIdentifiers: [],
+            options: [])
+        
+        UNUserNotificationCenter.current().setNotificationCategories([category])
     }
 }

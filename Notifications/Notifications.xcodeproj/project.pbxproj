@@ -22,6 +22,7 @@
 		A83F9B2520F796D200467A36 /* golf.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A83F9B2420F796D200467A36 /* golf.jpg */; };
 		A87DDC4420F46B9F00D37320 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87DDC4320F46B9F00D37320 /* NotificationService.swift */; };
 		A87DDC4820F46B9F00D37320 /* NotificationService.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A87DDC4120F46B9F00D37320 /* NotificationService.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A8FF521520F87C5100AF4922 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8FF521420F87C5100AF4922 /* Settings.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,7 @@
 		A87DDC4320F46B9F00D37320 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		A87DDC4520F46B9F00D37320 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A8D8600020E64393003DF920 /* Notifications.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Notifications.entitlements; sourceTree = "<group>"; };
+		A8FF521420F87C5100AF4922 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +139,7 @@
 				A821DFCC20E4AF67003B83FE /* favicon.png */,
 				A83F9B2420F796D200467A36 /* golf.jpg */,
 				A8217DE320DBD56300895832 /* Main.storyboard */,
+				A8FF521420F87C5100AF4922 /* Settings.storyboard */,
 				A8217DE620DBD56400895832 /* Assets.xcassets */,
 				A8217DE820DBD56400895832 /* LaunchScreen.storyboard */,
 				A8217DEB20DBD56400895832 /* Info.plist */,
@@ -284,6 +287,7 @@
 				A8217DEA20DBD56400895832 /* LaunchScreen.storyboard in Resources */,
 				A8217DE720DBD56400895832 /* Assets.xcassets in Resources */,
 				A8217DE520DBD56300895832 /* Main.storyboard in Resources */,
+				A8FF521520F87C5100AF4922 /* Settings.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

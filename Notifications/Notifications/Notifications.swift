@@ -14,7 +14,7 @@ class Notifications: NSObject, UNUserNotificationCenterDelegate {
     let notificationCenter = UNUserNotificationCenter.current()
     
     func requestAutorization() {
-        notificationCenter.requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in
+        notificationCenter.requestAuthorization(options: [.alert, .sound, .badge, .providesAppNotificationSettings]) { (granted, error) in
             print("Permission granted: \(granted)")
             
             guard granted else { return }
@@ -75,14 +75,15 @@ class Notifications: NSObject, UNUserNotificationCenterDelegate {
             }
         }
         
+        /*
         let snoozeAction = UNNotificationAction(
             identifier: "Snooze",
             title: "Snooze",
             options: [])
         
         let deleteAction = UNNotificationAction(
-            identifier: "Delete",
-            title: "Delete",
+            identifier: "Dismiss",
+            title: "Dismiss",
             options: [.destructive])
         
         let category = UNNotificationCategory(
@@ -92,6 +93,7 @@ class Notifications: NSObject, UNUserNotificationCenterDelegate {
             options: [])
 
         notificationCenter.setNotificationCategories([category])
+ */
     }
     
     
@@ -120,13 +122,15 @@ class Notifications: NSObject, UNUserNotificationCenterDelegate {
         case "Snooze":
             print("Snooze")
             scheduleNotification(notifaicationType: "Reminder")
-        case "Delete":
-            print("Delete")
         default:
             print("Unknown action")
         }
         
         completionHandler()
     }
-
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, openSettingsFor notification: UNNotification?) {
+        let appDelegate = UIApplication.shared.delegate as? AppDelegate
+        appDelegate?.openSettings()
+    }
 }
