@@ -47,6 +47,9 @@ class Notifications: NSObject, UNUserNotificationCenterDelegate {
         
         content.threadIdentifier = notifaicationType
         
+        content.summaryArgumentCount = 10
+        content.summaryArgument = notifaicationType
+        
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
         
         let identifire = UUID().uuidString

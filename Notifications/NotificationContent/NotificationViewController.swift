@@ -95,11 +95,12 @@ class NotificationViewController: UIViewController, UNNotificationContentExtensi
             UNNotificationAction(identifier: "Dismiss",  title: "Dismiss", options: [.destructive]),
             ]
         
-        let category = UNNotificationCategory(
-            identifier: "User Actions",
-            actions: actions,
-            intentIdentifiers: ["Thred 1", "Thred 2"],
-            options: [])
+        let category = UNNotificationCategory(identifier: "User Actions",
+                                              actions: actions,
+                                              intentIdentifiers: [],
+                                              hiddenPreviewsBodyPlaceholder: nil,
+                                              categorySummaryFormat: "%u новых уведомлений в разделе %@",
+                                              options: [])
         
         UNUserNotificationCenter.current().setNotificationCategories([category])
     }
