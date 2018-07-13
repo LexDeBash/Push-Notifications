@@ -40,11 +40,12 @@ class Notifications: NSObject, UNUserNotificationCenterDelegate {
         let userActions = "User Actions"
         
         content.title = notifaicationType
-        content.body = "This is example how to create " + notifaicationType
+        content.body = "Summer Time"
         content.sound = UNNotificationSound.default
         content.badge = 1
         content.categoryIdentifier = userActions
         
+        /*
         guard let path = Bundle.main.path(forResource: "favicon", ofType: "png") else { return }
         
         let url = URL(fileURLWithPath: path)
@@ -59,6 +60,7 @@ class Notifications: NSObject, UNUserNotificationCenterDelegate {
         } catch {
             print("The attachment cold not be loaded")
         }
+         */
         
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
         
@@ -91,6 +93,7 @@ class Notifications: NSObject, UNUserNotificationCenterDelegate {
 
         notificationCenter.setNotificationCategories([category])
     }
+    
     
     func userNotificationCenter(
         _ center: UNUserNotificationCenter,
