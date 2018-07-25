@@ -27,7 +27,7 @@
 			<key>UNNotificationExtensionCategory</key>
 			<string>User Actions</string>
 			<key>UNNotificationExtensionInitialContentSizeRatio</key>
-			<integer>1</integer>
+			<real>1</real>
 			<key>UNNotificationExtensionUserInteractionEnabled</key>
 			<true/>
 			<key>UNNotificationExtensionDefaultContentHidden</key>
