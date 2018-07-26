@@ -48,10 +48,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         print("Failed to register: \(error)")
     }
-    
-    func openSettings() {
-        let storyboard = UIStoryboard(name: "Settings", bundle: nil)
-        let settings = storyboard.instantiateViewController(withIdentifier: "Settings")
-        window?.rootViewController = settings
-    }
 }
